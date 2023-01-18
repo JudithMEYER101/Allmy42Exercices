@@ -2,35 +2,36 @@
 #include<stdio.h>
 
 char	*ft_strupcase(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
 	{
-		int	i;
-		while (str[i] != '\0')
+		if (str[i] >= 'A' && str[i] <= 'Z')
 		{
-			if (str[i] >= 'A' && str[i] <= 'Z')
-			{
-				printf("\nitsmajallright\n");
-				i++;
-			}
-			else
+			printf("\nitsmajallright\n");
+			i++;
+		}
+		else
 			if (str[i] >= 'a' && str[i] <= 'z')
 			{
 				printf("\n thataintmaj\n");
-				str[i] = str[i] - 32;
+				str[i] -= 32;
 				i++;
 			}
-			else
-			{
-				printf("\nError Format\n");
-			}
+		else
+		{
+			printf("\nError Format\n");
 		}
-		
-		return (str);
 	}
+	return (str);
+}
 
-int	main (void)
+int	main(void)
 {
 	char	*str;
-	
+
 	str = "EchecCritique";
 	printf("\n%s\n", str);
 	str = ft_strupcase(str);

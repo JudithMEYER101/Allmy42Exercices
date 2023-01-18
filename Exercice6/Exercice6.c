@@ -3,37 +3,37 @@
 
 int	ft_str_is_alpha(char *str)
 {
-	int	alpha_state;
 	int	i;
-	
+
 	i = 0;
-	alpha_state = 0;
 	while (str[i] != '\0')
 	{
-		if (sizeof(str[i]) != sizeof(char))
+		if (str[i] >= 'A' && str[i] <= 'Z')
 		{
-			str[i] = 0;
-			alpha_state = 0;
-		}
-		else
-		{	
-			printf("%c", str[i]);
-			alpha_state = 1;
 			i++;
 		}
-
+		else
+			if (str[i] >= 'a' && str[i] <= 'z')
+			{
+				i++;
+			}
+		else
+		{	
+			return (0);
+		}
 	}
-	return (alpha_state);
+	return (1);
 }
 
-int	main (void)
+int	main(void)
 {
 	char	*str;
-	int	is_alpha;
+	int		is_alpha;
 
+	is_alpha = 0;
 	str = "oksure";
 	is_alpha = ft_str_is_alpha(str);
-	if (is_alpha = 1)
+	if (is_alpha == 1)
 	{
 		printf("\nit's text\n");
 	}
